@@ -2,13 +2,8 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 
-<<<<<<< HEAD
-
-||||||| 703b364
-=======
 const routes = require('/routes/routes.js')
 
->>>>>>> main
 const server = express()
 
 server.use(express.json())
