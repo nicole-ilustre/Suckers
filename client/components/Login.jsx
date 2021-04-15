@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getWeather } from '../apiClient'
 
 function Login () {
   const initialData = {
@@ -6,6 +7,7 @@ function Login () {
     gender: 'female',
     city: ''
   }
+
   const [formData, setFormData] = useState(initialData)
 
   function handleChange (e) {
@@ -22,13 +24,9 @@ function Login () {
 
   function handleSubmit (e) {
     e.preventDefault()
-      .then(() => {
-        setFormData(initialData)
-        return null
-      })
-      .catch(err => {
-        res.status(500).send(err.message)
-      })
+    setFormData(formData)
+    getWeather(formData.city)
+    return null
   }
 
   return (
