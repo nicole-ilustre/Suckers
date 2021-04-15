@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 
-const routes = require('/routes/routes.js')
+const routes = require('./routes/routes')
 
 const server = express()
 
