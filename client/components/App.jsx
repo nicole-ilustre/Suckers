@@ -9,9 +9,9 @@ const App = () => {
   return (
     <div>
       <Login />
-      <Avatar />
-      <Weather />
-      <LoginStyle />
+      {/* <Avatar />
+      <Weather /> */}
+      {/* // <LoginStyle /> */}
     </div>
   )
 }

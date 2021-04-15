@@ -1,40 +1,64 @@
-import React, { useState, useEffect } from 'react'
-
-{/* <img src="https://avatars.dicebear.com/api/male/aaron.svg" */}
+import React, { useState } from 'react'
 
 function Login () {
+  const initialData = {
+    name: 'Nicole',
+    gender: 'female',
+    city: ''
+  }
+  const [formData, setFormData] = useState(initialData)
 
-function handleClick () {
-    console.log('click!')
-}
+  function handleChange (e) {
+    let value = e.target.value
+    if (e.target.selectedIndex !== undefined) {
+      value = e.target.options[e.target.selectedIndex].value
+    }
+    const newFormData = {
+      ...formData,
+      [e.target.name]: value
+    }
+    setFormData(newFormData)
+  }
 
-return (
+  function handleSubmit (e) {
+    e.preventDefault()
+      .then(() => {
+        setFormData(initialData)
+        return null
+      })
+      .catch(err => {
+        res.status(500).send(err.message)
+      })
+  }
+
+  return (
     <>
-    <div>
-        <h2>Weather</h2>
-    </div>
-    <div>
-        <form onSubmit="handleSubmit">
-    <div>
-        <select>
-            <option value='Male'>Male</option>
-            <option value='Female'>Female</option>
-            <option value='Bottts'>Bottts</option>
-        </select>
-    </div>
-    <div>
-        <input type="text" name="name" placeholder="Type your name" />
-    </div>
-    <div>
-        <input type="text" name="city" placeholder="Type your city" />
-    </div>
-    <div>
-        <button onClick={handleClick}>Submit</button>
-    </div>        
-    </form>
-    </div>
+      <div>
+        <form>
+          <div>
+            <img src={`https://avatars.dicebear.com/api/${formData.gender}/${formData.name}.svg`} />
+          </div>
+          <div>
+            <select name='gender' onChange={handleChange}>
+              <option value='male'>Male</option>
+              <option value='female'>Female</option>
+              <option value='bottts'>Bottts</option>
+            </select>
+          </div>
+
+          <div>
+            <input type="text" name="name" value={formData.name} placeholder="Type your name" onChange={handleChange} />
+          </div>
+          <div>
+            <input type="text" name="city" value={formData.city} placeholder="Type your city" onChange={handleChange} />
+          </div>
+          <div>
+            <button onClick={handleSubmit}>Submit</button>
+          </div>
+        </form>
+      </div>
     </>
-)
+  )
 }
 
 export default Login
