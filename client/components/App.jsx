@@ -9,11 +9,23 @@ import WeatherStyle from './WeatherStyle'
 const App = () => {
   return (
     <div>
+<<<<<<< HEAD
       {/* <Login />
       <Avatar />
       <Weather /> */}
       {/* <LoginStyle /> */}
       <WeatherStyle />
+||||||| b82ac6d
+      <Login />
+      <Avatar />
+      <Weather />
+      <LoginStyle />
+=======
+      <Login />
+      {/* <Avatar />
+      <Weather /> */}
+      {/* // <LoginStyle /> */}
+>>>>>>> main
     </div>
   )
 }

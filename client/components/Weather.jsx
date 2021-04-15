@@ -1,21 +1,19 @@
 import React, {useEffect} from 'react'
 
 function Weather () {
-  
   useEffect(() => {
     getWeather()
-    .then((res) => {
-      
-    })
-    .catch(e => {
-      console.log(e)
-    })
+      .then((res) => {
+      })
+      .catch(e => {
+        console.log(e)
+      })
   })
 
-    return (
-        <div>
-        </div>
-    )
+  return (
+    <div>
+    </div>
+  )
 }
 
 export default Weather

@@ -10,6 +10,6 @@ export function getWeather () {
 
 export function weather () {
   return request
-  .get('')
-  .then(res=> res.body)
+    .get('')
+    .then(res=> res.body)
 }
