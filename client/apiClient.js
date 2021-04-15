@@ -1,15 +1,9 @@
 import request from 'superagent'
 
-const serverURL = 'http://localhost:3000/api/v1'
+const serverURL = 'http://localhost:3000/api/v1/weather'
 
-export function getWeather () {
+export function getWeather (city) {
   return request
-    .get(`${serverURL}/weatherProxy`)
+    .get(`${serverURL}/${city}`)
     .then(res => res.body)
-}
-
-export function weather () {
-  return request
-    .get('')
-    .then(res=> res.body)
 }
