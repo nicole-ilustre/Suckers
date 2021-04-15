@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from 'react'
 
-<img src="https://avatars.dicebear.com/api/male/aaron.svg"
+{/* <img src="https://avatars.dicebear.com/api/male/aaron.svg" */}
 
 function Login () {
-    const avatar = 'https://avatars.dicebear.com/api/' + gender + '/' + userInput + '.svg'
-    const initialAvatar = 'https://avatars.dicebear.com/api/{gender}/{userInput}.svg'
-    const [avatar, setAvatar] = useState()
-    
 
 function handleClick () {
     console.log('click!')
-  }
+}
 
-  return (
-      <div>
-          <form onSubmit="handleSubmit">
-              <select>
-                  <option value='Male'>Male</option>
-                  <option value='Female'>Female</option>
-                  <option value='Bottts'>Bottts</option>
-              </select>
-              <input type="text" name="name" placeholder="Type your name" />
-              <button onClick={handleClick}>Submit</button>
-          </form>
-      </div>
-  )
+return (
+    <>
+    <div>
+        <h2>Weather</h2>
+    </div>
+    <div>
+        <form onSubmit="handleSubmit">
+    <div>
+        <select>
+            <option value='Male'>Male</option>
+            <option value='Female'>Female</option>
+            <option value='Bottts'>Bottts</option>
+        </select>
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="Type your name" />
+    </div>
+    <div>
+        <input type="text" name="city" placeholder="Type your city" />
+    </div>
+    <div>
+        <button onClick={handleClick}>Submit</button>
+    </div>        
+    </form>
+    </div>
+    </>
+)
 }
 
 export default Login
