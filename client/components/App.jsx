@@ -4,14 +4,16 @@ import Login from './Login'
 import Avatar from './Avatar'
 import Weather from './Weather'
 import { getWeather } from '../apiClient'
+import WeatherStyle from './WeatherStyle'
 
 const App = () => {
   return (
     <div>
-      <Login />
-      {/* <Avatar />
+      {/* <Login />
+      <Avatar />
       <Weather /> */}
-      {/* // <LoginStyle /> */}
+      {/* <LoginStyle /> */}
+      <WeatherStyle />
     </div>
   )
 }
