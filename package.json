@@ -16,7 +16,7 @@
     "server": "node server",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "webpack": "webpack --config ./client/webpack.config.js",
+    "webpack": "webpack --config ./client/webpack.config.js --watch",
     "lint": "eslint --ext .js,.jsx ."
   },
   "keywords": [

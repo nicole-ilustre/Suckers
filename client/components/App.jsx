@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import LoginStyle from './LoginStyle'
 import Login from './Login'
 import Avatar from './Avatar'
 import Weather from './Weather'
@@ -10,6 +11,7 @@ const App = () => {
       <Login />
       <Avatar />
       <Weather />
+      <LoginStyle />
     </div>
   )
 }
