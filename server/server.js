@@ -15,11 +15,10 @@ server.use('/api/v1/weather', routes)
 
 module.exports = server
 
-server.get('/api/v1/weather/:query', (req, res) => {
-  const city = req.params.query
-  const serverURL = 'http://localhost:3000/api/v1'
+server.get('/api/v1/weather/:city', (req, res) => {
+  const city = req.params.city
   return request
-    .get(`${serverURL}/weather/api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.SECRET}`)
+    .get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.SECRET}`)
     .then(response => {
       return res.json(response.body)
     })

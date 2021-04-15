@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import { getWeather } from 'react'
 
 function Weather () {
   useEffect(() => {
@@ -9,9 +10,18 @@ function Weather () {
         console.log(e)
       })
   })
-
+  
   return (
     <div>
+      {name}
+      {sys.country},
+      {sys.sunrise},
+      {sys.sunset},
+      {main.temp},
+      {main.feels_like},
+      {main.humidity},
+      {wind.speed},
+      {clouds.all}
     </div>
   )
 }

@@ -4,6 +4,6 @@ const serverURL = 'http://localhost:3000/api/v1/weather'
 
 export function getWeather (city) {
   return request
-    .get(`${serverURL}/weather/${city}`)
+    .get(`${serverURL}/${city}`)
     .then(res => res.body)
 }
