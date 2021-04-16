@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import LoginStyle from './LoginStyle'
+// import LoginStyle from './LoginStyle'
 import Login from './Login'
 import Avatar from './Avatar'
 import Weather from './Weather'
@@ -9,8 +9,8 @@ import WeatherStyle from './WeatherStyle'
 const App = () => {
   return (
     <div>
-      {/* <Login />
-      <Avatar />
+      {/* <Login /> */}
+      {/* <Avatar />
       <Weather /> */}
       {/* <LoginStyle /> */}
       <WeatherStyle />

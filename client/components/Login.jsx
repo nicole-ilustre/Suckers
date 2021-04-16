@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { getWeather } from '../apiClient'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
+
 
 function Login () {
   const initialData = {
@@ -31,32 +33,59 @@ function Login () {
 
   return (
     <>
-      <div>
-        <form>
-          <div>
-            <img src={`https://avatars.dicebear.com/api/${formData.gender}/${formData.name}.svg`} />
-          </div>
-          <div>
-            <select name='gender' onChange={handleChange}>
-              <option value='male'>Male</option>
-              <option value='female'>Female</option>
-              <option value='bottts'>Bottts</option>
-            </select>
-          </div>
-
-          <div>
-            <input type="text" name="name" value={formData.name} placeholder="Type your name" onChange={handleChange} />
-          </div>
-          <div>
-            <input type="text" name="city" value={formData.city} placeholder="Type your city" onChange={handleChange} />
-          </div>
-          <div>
-            <button onClick={handleSubmit}>Submit</button>
-          </div>
-        </form>
-      </div>
-    </>
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 450 }}>
+      <img className="ui medium centered image" src={`https://avatars.dicebear.com/api/${formData.gender}/${formData.name}.svg`}/>
+      <Header as='h2' color='teal' textAlign='center'>
+         Create your Avatar
+      </Header>
+      <Form size='large'>
+        <Segment stacked>
+          <Form.Input fluid icon='user' iconPosition='left' placeholder='Name' name="name" value={formData.name} onChange={handleChange} />
+          <Form.Input fluid icon='building' iconPosition='left' placeholder='City' name="city" value={formData.city} onChange={handleChange} />
+          <select name="gender" className="ui dropdown" id="select" onChange={handleChange}>
+            <option value="">Pick your Person</option>
+            <option value='male'>Male</option>
+            <option value='female'>Female</option>
+            <option value='bottts'>Bottts</option>
+          </select>
+          <Button color='teal' fluid size='large' onClick={handleSubmit}>
+            Create Avatar
+          </Button>
+        </Segment>
+      </Form>
+      </Grid.Column>
+    </Grid>
+  </>
   )
 }
 
 export default Login
+
+  
+    // <>
+    //   <div>
+    //     <form>
+    //       <div>
+    //         <img class="ui medium circular image" src={`https://avatars.dicebear.com/api/${formData.gender}/${formData.name}.svg`} />
+    //       </div>
+    //       <div>
+    //         <select name='gender' >
+    //           <option value='male'>Male</option>
+    //           <option value='female'>Female</option>
+    //           <option value='bottts'>Bottts</option>
+    //         </select>
+    //       </div>
+
+    //       <div>
+    //         <input type="text" name="name"  placeholder="Type your name"  />
+    //       </div>
+    //       <div>
+    //         <input type="text" name="city" value={formData.city} placeholder="Type your city" onChange={handleChange} />
+    //       </div>
+    //       <div>
+    //         <button onClick={handleSubmit}>Submit</button>
+    //       </div>
+    //     </form>
+    //   </div>
+    // </>
