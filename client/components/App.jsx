@@ -1,20 +1,14 @@
-import React, {useState, useEffect} from 'react'
-// import LoginStyle from './LoginStyle'
-import Login from './Login'
-import Avatar from './Avatar'
+import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
+import { Login } from './Login'
 import Weather from './Weather'
-import { getWeather } from '../apiClient'
-import WeatherStyle from './WeatherStyle'
 
 const App = () => {
   return (
-    <div>
-      {/* <Login /> */}
-      {/* <Avatar />
-      <Weather /> */}
-      {/* <LoginStyle /> */}
-      <WeatherStyle />
-    </div>
+    <Router>
+      <Route exact path={'/weather'} component={Weather} />
+      <Route exact path ={'/'} component={Login} />
+    </Router>
   )
 }
 

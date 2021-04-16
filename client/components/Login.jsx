@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { getWeather } from '../apiClient'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
+let userInfo = {}
 
-function Login () {
+function Login (props) {
   const initialData = {
     name: 'Nicole',
     gender: 'female',
@@ -26,8 +26,8 @@ function Login () {
 
   function handleSubmit (e) {
     e.preventDefault()
-    setFormData(formData)
-    getWeather(formData.city)
+    userInfo = formData
+    props.history.push('/weather')
     return null
   }
 
@@ -60,9 +60,9 @@ function Login () {
   )
 }
 
-export default Login
+export { Login, userInfo }
 
-  
+
 // <>
 //   <div>
 //     <form>
