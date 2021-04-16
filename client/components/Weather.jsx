@@ -5,7 +5,27 @@ import { Grid } from 'semantic-ui-react'
 
 function Weather () {
   const [weatherData, setWeather] = useState({
-    weather:[{}]
+    weather: [{
+      main: '',
+      description: ''
+    }],
+    name: '',
+    sys: {
+      country: '',
+      sunrise: '',
+      sunset: ''
+    },
+    main: {
+      temp: 0,
+      feels_like: 0,
+      humidity: 0
+    },
+    wind: {
+      speed: 0
+    },
+    clouds: {
+      all: 1
+    }
   })
 
   useEffect(() => {
@@ -17,12 +37,11 @@ function Weather () {
       .catch(e => console.error(e.message))
   }, [])
 
-  console.log(weatherData)
   return (
     <>
       <div className="ui stackable menu">
         <div className="item">
-        Welcome Username
+        Welcome {userInfo.name}
           <img className="ui avatar image" src={`https://avatars.dicebear.com/api/${userInfo.gender}/${userInfo.name}.svg`} />
         </div>
       </div>
@@ -33,7 +52,7 @@ function Weather () {
             <i className="cloudversify icon"></i>
       Weather Information
           </h4>
-          {/* <table className="ui definition table">
+          <table className="ui definition table">
             <tbody>
               <tr>
                 <td className="two wide column">Name</td>
@@ -45,23 +64,23 @@ function Weather () {
               </tr>
               <tr>
                 <td>Forecast</td>
-                <td>{weatherData.weather.description}</td>
+                <td>{weatherData.weather['0'].description}</td>
               </tr>
               <tr>
                 <td>Sunrise</td>
-                <td>{new Date(weatherData.sys.sunrise).getTime()}</td>
+                <td>{new Date(weatherData.sys.sunrise * 1000).getHours()}</td>
               </tr>
               <tr>
                 <td>Sunset</td>
-                <td>{new Date(weatherData.sys.sunset).getTime()}</td>
+                <td>{new Date(weatherData.sys.sunset * 1000).getTime()}</td>
               </tr>
               <tr>
                 <td>Temp</td>
-                <td> {weatherData.main.temp - 273.15} °C</td> 
+                <td> {Math.floor(weatherData.main.temp - 273.15)} °C</td>
               </tr>
               <tr>
                 <td>Feels Like</td>
-                <td>{weatherData.main.feels_like - 273.15} °C</td>
+                <td>{Math.floor(weatherData.main.feels_like - 273.15)} °C</td>
               </tr>
               <tr>
                 <td>Humidity</td>
@@ -69,14 +88,14 @@ function Weather () {
               </tr>
               <tr>
                 <td>Wind Speed</td>
-                <td>{weatherData.wind.speed * 3.6} km/h</td>
+                <td>{Math.floor(weatherData.wind.speed * 3.6)} km/h</td>
               </tr>
               <tr>
                 <td>Clouds</td>
                 <td>{weatherData.clouds.all}%</td>
               </tr>
             </tbody>
-          </table> */}
+          </table>
         </Grid.Column>
       </Grid>
     </>
