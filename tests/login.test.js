@@ -1,22 +1,27 @@
 import React from 'react'
 import { render, screen, fireEvent } from "@testing-library/react"
-import { debug } from 'webpack'
 
-import Login from '../client/components/Login'
+import { Login } from '../client/components/Login'
 
 
-// Login component test
+//Login component test
 describe('<Login />', () => {
-  it('Finds the submit button on screen', () => {
+  it('Finds the create avatar button on screen', () => {
     render(<Login />)
-    const button = screen.getByText('Submit')
+    const button = screen.getByText(/Create Avatar/)
     expect(button).not.toBe(undefined)
   })
 })
 
+// test('Finds the create avatar button on screen', () => {
+//   render(<Login />)
+//   const button = screen.getByText(/Create Avatar/)
+//   expect(button).not.toBe(undefined)
+// })
+
 test('Calls onClick when submit is clicked', () => {
   const handleClick = jest.fn()
-  render(<button onClick={handleClick}>Submit</button>)
-  fireEvent.click(screen.getByText(/Submit/))
+  render(<button onClick={handleClick}>Create Avatar</button>)
+  fireEvent.click(screen.getByText(/Create Avatar/))
   expect(handleClick).toHaveBeenCalledTimes(1)
 })
